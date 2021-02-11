@@ -94,7 +94,7 @@
                "description":"Object description"
             },
             {
-               "id":"date",
+               "id":"date2",
                "type":"date",
                "name":"Date param",
                "required":true,
