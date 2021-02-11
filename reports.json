@@ -103,12 +103,26 @@
          ]
       },
       {
-         "name":"E2E Unrecoverable Error",
+         "name":"E2E Unrecoverable Error but known",
          "readme_file":"reports/unrecoverable_error/Readme.md",
          "template":"reports/unrecoverable_error/template.xlsx",
          "start_row":1,
          "start_col":1,
          "entrypoint":"reports.unrecoverable_error.entrypoint.generate",
+         "audience":[
+            "provider",
+            "vendor"
+         ],
+         "report_spec":"1",
+         "parameters":[]
+      },
+      {
+         "name":"E2E Unrecoverable Error with block",
+         "readme_file":"reports/block_error/Readme.md",
+         "template":"reports/block_error/template.xlsx",
+         "start_row":1,
+         "start_col":1,
+         "entrypoint":"reports.block_error.entrypoint.generate",
          "audience":[
             "provider",
             "vendor"

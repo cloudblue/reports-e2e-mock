@@ -5,4 +5,4 @@
 #
 
 def generate(client, parameters, progress_callback):
-    raise RuntimeError("Report has failed due KNOWN reason")
+    raise Exception("Report has failed due unknown reason")
