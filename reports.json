@@ -1,0 +1,106 @@
+{
+   "name":"Connect E2E Reports",
+   "readme_file":"Readme.md",
+   "version":"1.0.0",
+   "language":"python",
+   "reports":[
+      {
+         "name":"sample report",
+         "readme_file":"reports/e2e/Readme.md",
+         "template":"reports/e2e/template.xlsx",
+         "start_row":1,
+         "start_col":1,
+         "entrypoint":"reports.e2e.entrypoint.generate",
+         "audience":[
+            "provider",
+            "vendor"
+         ],
+         "report_spec":"1",
+         "parameters":[
+            {
+               "id":"date",
+               "type":"date_range",
+               "name":"Report period",
+               "description":"Provide the time period to create the report",
+               "required":true
+            },
+            {
+               "id":"product",
+               "type":"product",
+               "name":"Product list",
+               "description":"Select the products you want to include in report",
+               "required":true
+            },
+            {
+               "id":"mkp",
+               "type":"marketplace",
+               "name":"Marketplaces",
+               "required":true,
+               "description":"Select the marketplaces you want to include in report"
+            },
+            {
+               "id":"hub",
+               "type":"hub",
+               "name":"Hubs",
+               "required":true,
+               "description":"Select the hubs you want to include in report"
+            },
+            {
+               "id":"rr_type",
+               "type":"checkbox",
+               "name":"Types of requests",
+               "description":"Select the requests types you want to include in report",
+               "required":true,
+               "choices":[
+                  {
+                     "value":"purchase",
+                     "label":"Purchase"
+                  },
+                  {
+                     "value":"change",
+                     "label":"Change"
+                  }
+               ]
+            },
+            {
+               "id":"period",
+               "type":"checkbox",
+               "name":"Billing Periods",
+               "required":true,
+               "description":"Specify the billing periods to include in report",
+               "choices":[
+                  {
+                     "value":"monthly",
+                     "label":"1 Month"
+                  },
+                  {
+                     "value":"yearly",
+                     "label":"1 Year"
+                  }
+               ]
+            },
+            {
+               "id":"single_line",
+               "type":"single_line",
+               "name":"Single Line",
+               "required":true,
+               "description":"Single Line description"
+            },
+            {
+               "id":"object",
+               "type":"object",
+               "name":"Object",
+               "required":true,
+               "description":"Object description"
+            },
+            {
+               "id":"date",
+               "type":"date",
+               "name":"Date param",
+               "required":true,
+               "description":"Date description"
+            }
+         ]
+      }
+   ]
+}
