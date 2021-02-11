@@ -5,7 +5,7 @@
    "language":"python",
    "reports":[
       {
-         "name":"sample report",
+         "name":"E2E Report Successful",
          "readme_file":"reports/e2e/Readme.md",
          "template":"reports/e2e/template.xlsx",
          "start_row":1,
@@ -99,6 +99,42 @@
                "name":"Date param",
                "required":true,
                "description":"Date description"
+            }
+         ]
+      },
+      {
+         "name":"E2E Unrecoverable Error",
+         "readme_file":"reports/unrecoverable_error/Readme.md",
+         "template":"reports/unrecoverable_error/template.xlsx",
+         "start_row":1,
+         "start_col":1,
+         "entrypoint":"reports.unrecoverable_error.entrypoint.generate",
+         "audience":[
+            "provider",
+            "vendor"
+         ],
+         "report_spec":"1",
+         "parameters":[]
+      },
+      {
+         "name":"E2E Sleep report",
+         "readme_file":"reports/sleep/Readme.md",
+         "template":"reports/sleep/template.xlsx",
+         "start_row":1,
+         "start_col":1,
+         "entrypoint":"reports.sleep.entrypoint.generate",
+         "audience":[
+            "provider",
+            "vendor"
+         ],
+         "report_spec":"1",
+         "parameters":[
+            {
+               "id":"sleep",
+               "type":"single_line",
+               "name":"Single Line",
+               "required":true,
+               "description":"Number of seconds to sleep"
             }
          ]
       }
