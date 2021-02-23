@@ -80,6 +80,23 @@
                ]
             },
             {
+               "id":"choice",
+               "type":"choice",
+               "name":"Happy?",
+               "required":true,
+               "description":"We need to know if you are happy or not",
+               "choices":[
+                  {
+                     "value":"yes",
+                     "label":"Yes, i am happy"
+                  },
+                  {
+                     "value":"no",
+                     "label":"I don't feel happy today"
+                  }
+               ]
+            },
+            {
                "id":"single_line",
                "type":"single_line",
                "name":"Single Line",
@@ -114,7 +131,9 @@
             "vendor"
          ],
          "report_spec":"1",
-         "parameters":[]
+         "parameters":[
+            
+         ]
       },
       {
          "name":"E2E Unrecoverable Error with block",
@@ -128,7 +147,9 @@
             "vendor"
          ],
          "report_spec":"1",
-         "parameters":[]
+         "parameters":[
+            
+         ]
       },
       {
          "name":"E2E Sleep report",
