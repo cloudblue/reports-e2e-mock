@@ -1,177 +1,297 @@
 {
-   "name":"Connect E2E Reports",
-   "readme_file":"Readme.md",
-   "version":"1.0.0",
-   "language":"python",
-   "reports":[
-      {
-         "name":"E2E Report Successful",
-         "readme_file":"reports/e2e/Readme.md",
-         "template":"reports/e2e/template.xlsx",
-         "start_row":1,
-         "start_col":1,
-         "entrypoint":"reports.e2e.entrypoint.generate",
-         "audience":[
-            "provider",
-            "vendor"
-         ],
-         "report_spec":"1",
-         "parameters":[
+  "name": "Connect E2E Reports",
+  "readme_file": "Readme.md",
+  "version": "1.0.0",
+  "language": "python",
+  "reports": [
+    {
+      "name": "E2E Report Successful",
+      "readme_file": "reports/e2e/Readme.md",
+      "template": "reports/e2e/template.xlsx",
+      "start_row": 1,
+      "start_col": 1,
+      "entrypoint": "reports.e2e.entrypoint.generate",
+      "audience": ["provider", "vendor"],
+      "report_spec": "1",
+      "parameters": [
+        {
+          "id": "date",
+          "type": "date_range",
+          "name": "Report period",
+          "description": "Provide the time period to create the report",
+          "required": true
+        },
+        {
+          "id": "product",
+          "type": "product",
+          "name": "Product list",
+          "description": "Select the products you want to include in report",
+          "required": true
+        },
+        {
+          "id": "mkp",
+          "type": "marketplace",
+          "name": "Marketplaces",
+          "required": true,
+          "description": "Select the marketplaces you want to include in report"
+        },
+        {
+          "id": "hub",
+          "type": "hub",
+          "name": "Hubs",
+          "required": true,
+          "description": "Select the hubs you want to include in report"
+        },
+        {
+          "id": "rr_type",
+          "type": "checkbox",
+          "name": "Types of requests",
+          "description": "Select the requests types you want to include in report",
+          "required": true,
+          "choices": [
             {
-               "id":"date",
-               "type":"date_range",
-               "name":"Report period",
-               "description":"Provide the time period to create the report",
-               "required":true
+              "value": "purchase",
+              "label": "Purchase"
             },
             {
-               "id":"product",
-               "type":"product",
-               "name":"Product list",
-               "description":"Select the products you want to include in report",
-               "required":true
-            },
-            {
-               "id":"mkp",
-               "type":"marketplace",
-               "name":"Marketplaces",
-               "required":true,
-               "description":"Select the marketplaces you want to include in report"
-            },
-            {
-               "id":"hub",
-               "type":"hub",
-               "name":"Hubs",
-               "required":true,
-               "description":"Select the hubs you want to include in report"
-            },
-            {
-               "id":"rr_type",
-               "type":"checkbox",
-               "name":"Types of requests",
-               "description":"Select the requests types you want to include in report",
-               "required":true,
-               "choices":[
-                  {
-                     "value":"purchase",
-                     "label":"Purchase"
-                  },
-                  {
-                     "value":"change",
-                     "label":"Change"
-                  }
-               ]
-            },
-            {
-               "id":"period",
-               "type":"checkbox",
-               "name":"Billing Periods",
-               "required":true,
-               "description":"Specify the billing periods to include in report",
-               "choices":[
-                  {
-                     "value":"monthly",
-                     "label":"1 Month"
-                  },
-                  {
-                     "value":"yearly",
-                     "label":"1 Year"
-                  }
-               ]
-            },
-            {
-               "id":"choice",
-               "type":"choice",
-               "name":"Happy?",
-               "required":true,
-               "description":"We need to know if you are happy or not",
-               "choices":[
-                  {
-                     "value":"yes",
-                     "label":"Yes, i am happy"
-                  },
-                  {
-                     "value":"no",
-                     "label":"I don't feel happy today"
-                  }
-               ]
-            },
-            {
-               "id":"single_line",
-               "type":"single_line",
-               "name":"Single Line",
-               "required":true,
-               "description":"Single Line description"
-            },
-            {
-               "id":"object",
-               "type":"object",
-               "name":"Object",
-               "required":true,
-               "description":"Object description"
-            },
-            {
-               "id":"date2",
-               "type":"date",
-               "name":"Date param",
-               "required":true,
-               "description":"Date description"
+              "value": "change",
+              "label": "Change"
             }
-         ]
-      },
-      {
-         "name":"E2E Unrecoverable Error but known",
-         "readme_file":"reports/unrecoverable_error/Readme.md",
-         "template":"reports/unrecoverable_error/template.xlsx",
-         "start_row":1,
-         "start_col":1,
-         "entrypoint":"reports.unrecoverable_error.entrypoint.generate",
-         "audience":[
-            "provider",
-            "vendor"
-         ],
-         "report_spec":"1",
-         "parameters":[
-            
-         ]
-      },
-      {
-         "name":"E2E Unrecoverable Error with block",
-         "readme_file":"reports/block_error/Readme.md",
-         "template":"reports/block_error/template.xlsx",
-         "start_row":1,
-         "start_col":1,
-         "entrypoint":"reports.block_error.entrypoint.generate",
-         "audience":[
-            "provider",
-            "vendor"
-         ],
-         "report_spec":"1",
-         "parameters":[
-            
-         ]
-      },
-      {
-         "name":"E2E Sleep report",
-         "readme_file":"reports/sleep/Readme.md",
-         "template":"reports/sleep/template.xlsx",
-         "start_row":1,
-         "start_col":1,
-         "entrypoint":"reports.sleep.entrypoint.generate",
-         "audience":[
-            "provider",
-            "vendor"
-         ],
-         "report_spec":"1",
-         "parameters":[
+          ]
+        },
+        {
+          "id": "period",
+          "type": "checkbox",
+          "name": "Billing Periods",
+          "required": true,
+          "description": "Specify the billing periods to include in report",
+          "choices": [
             {
-               "id":"sleep",
-               "type":"single_line",
-               "name":"Single Line",
-               "required":true,
-               "description":"Number of seconds to sleep"
+              "value": "monthly",
+              "label": "1 Month"
+            },
+            {
+              "value": "yearly",
+              "label": "1 Year"
             }
-         ]
-      }
-   ]
+          ]
+        },
+        {
+          "id": "choice",
+          "type": "choice",
+          "name": "Happy?",
+          "required": true,
+          "description": "We need to know if you are happy or not",
+          "choices": [
+            {
+              "value": "yes",
+              "label": "Yes, i am happy"
+            },
+            {
+              "value": "no",
+              "label": "I don't feel happy today"
+            }
+          ]
+        },
+        {
+          "id": "single_line",
+          "type": "single_line",
+          "name": "Single Line",
+          "required": true,
+          "description": "Single Line description"
+        },
+        {
+          "id": "object",
+          "type": "object",
+          "name": "Object",
+          "required": true,
+          "description": "Object description"
+        },
+        {
+          "id": "date2",
+          "type": "date",
+          "name": "Date param",
+          "required": true,
+          "description": "Date description"
+        }
+      ]
+    },
+    {
+      "name": "E2E Report Successful (V2)",
+      "readme_file": "reports/e2e_v2/Readme.md",
+      "entrypoint": "reports.e2e_v2.entrypoint.generate",
+      "audience": ["provider", "vendor"],
+      "report_spec": "2",
+      "renderers": [
+         {
+            "id": "xlsx",
+            "type": "xlsx",
+            "default": true,
+            "description": "Export data in Microsoft Excel 2020 format.",
+            "template": "reports/e2e_v2/template.xlsx",
+            "args": {
+                "start_row": 1,
+                "start_col": 1
+            }
+         },
+         {
+         
+            "id": "json",
+            "type": "json",
+            "default": false,
+            "description": "Export data as JSON"
+         },
+         {
+         
+            "id": "csv",
+            "type": "csv",
+            "default": false,
+            "description": "Export data as CSV"
+         }
+      ],
+      "parameters": [
+        {
+          "id": "date",
+          "type": "date_range",
+          "name": "Report period",
+          "description": "Provide the time period to create the report",
+          "required": true
+        },
+        {
+          "id": "product",
+          "type": "product",
+          "name": "Product list",
+          "description": "Select the products you want to include in report",
+          "required": true
+        },
+        {
+          "id": "mkp",
+          "type": "marketplace",
+          "name": "Marketplaces",
+          "required": true,
+          "description": "Select the marketplaces you want to include in report"
+        },
+        {
+          "id": "hub",
+          "type": "hub",
+          "name": "Hubs",
+          "required": true,
+          "description": "Select the hubs you want to include in report"
+        },
+        {
+          "id": "rr_type",
+          "type": "checkbox",
+          "name": "Types of requests",
+          "description": "Select the requests types you want to include in report",
+          "required": true,
+          "choices": [
+            {
+              "value": "purchase",
+              "label": "Purchase"
+            },
+            {
+              "value": "change",
+              "label": "Change"
+            }
+          ]
+        },
+        {
+          "id": "period",
+          "type": "checkbox",
+          "name": "Billing Periods",
+          "required": true,
+          "description": "Specify the billing periods to include in report",
+          "choices": [
+            {
+              "value": "monthly",
+              "label": "1 Month"
+            },
+            {
+              "value": "yearly",
+              "label": "1 Year"
+            }
+          ]
+        },
+        {
+          "id": "choice",
+          "type": "choice",
+          "name": "Happy?",
+          "required": true,
+          "description": "We need to know if you are happy or not",
+          "choices": [
+            {
+              "value": "yes",
+              "label": "Yes, i am happy"
+            },
+            {
+              "value": "no",
+              "label": "I don't feel happy today"
+            }
+          ]
+        },
+        {
+          "id": "single_line",
+          "type": "single_line",
+          "name": "Single Line",
+          "required": true,
+          "description": "Single Line description"
+        },
+        {
+          "id": "object",
+          "type": "object",
+          "name": "Object",
+          "required": true,
+          "description": "Object description"
+        },
+        {
+          "id": "date2",
+          "type": "date",
+          "name": "Date param",
+          "required": true,
+          "description": "Date description"
+        }
+      ]
+    },
+    {
+      "name": "E2E Unrecoverable Error but known",
+      "readme_file": "reports/unrecoverable_error/Readme.md",
+      "template": "reports/unrecoverable_error/template.xlsx",
+      "start_row": 1,
+      "start_col": 1,
+      "entrypoint": "reports.unrecoverable_error.entrypoint.generate",
+      "audience": ["provider", "vendor"],
+      "report_spec": "1",
+      "parameters": []
+    },
+    {
+      "name": "E2E Unrecoverable Error with block",
+      "readme_file": "reports/block_error/Readme.md",
+      "template": "reports/block_error/template.xlsx",
+      "start_row": 1,
+      "start_col": 1,
+      "entrypoint": "reports.block_error.entrypoint.generate",
+      "audience": ["provider", "vendor"],
+      "report_spec": "1",
+      "parameters": []
+    },
+    {
+      "name": "E2E Sleep report",
+      "readme_file": "reports/sleep/Readme.md",
+      "template": "reports/sleep/template.xlsx",
+      "start_row": 1,
+      "start_col": 1,
+      "entrypoint": "reports.sleep.entrypoint.generate",
+      "audience": ["provider", "vendor"],
+      "report_spec": "1",
+      "parameters": [
+        {
+          "id": "sleep",
+          "type": "single_line",
+          "name": "Single Line",
+          "required": true,
+          "description": "Number of seconds to sleep"
+        }
+      ]
+    }
+  ]
 }
